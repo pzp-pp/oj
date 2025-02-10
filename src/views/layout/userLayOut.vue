@@ -1,8 +1,11 @@
 <template>
-  <div id="basicLayOut">
+  <div id="userLayOut">
     <a-layout style="min-height: 100vh">
       <a-layout-header class="header">
-        <globalHeader></globalHeader>
+        <a-space>
+          <img class="logo" src="/src/assets/布布头像.jpeg" />
+          <div><span>布布-oj</span></div>
+        </a-space>
       </a-layout-header>
       <a-layout-content class="content">
         <router-view></router-view>
@@ -14,27 +17,33 @@
   </div>
 </template>
 
-<script setup>
-import globalHeader from '@/components/globalHeader.vue'
-</script>
+<script setup></script>
 
 <style scoped>
-#basicLayOut {
+#userLayOut {
+  text-align: center;
+  background-image: url(/src/assets/布布一二背景图.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-#basicLayOut .header {
+#userLayOut .logo {
+  height: 48px;
+  width: 48px;
+}
+
+#userLayOut .header {
+  margin-top: 16px;
   margin-bottom: 16px;
-  box-shadow: gray 1px 1px 5px;
 }
 
-#basicLayOut .content {
-  background: lightblue;
+#userLayOut .content {
   padding: 24px;
   margin-bottom: 16px;
 }
 
-#basicLayOut .footer {
-  background: red;
+#userLayOut .footer {
   padding: 16px;
   position: sticky;
   bottom: 0;

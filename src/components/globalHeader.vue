@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 通过arco的布局组件a-row和a-col实现页面布局 -->
-    <a-row style="margin-bottom: 16px" align="center">
+    <a-row style="margin-bottom: 16px" align="center" :wrap="false">
       <a-col flex="auto">
         <a-menu
           mode="horizontal"
@@ -18,7 +18,7 @@
               <div class="title">布布-oj</div>
             </div>
           </a-menu-item>
-          <a-menu-item v-for="item in routes" :key="item.path">
+          <a-menu-item v-for="item in visibleRoutes" :key="item.path">
             {{ item.name }}
           </a-menu-item>
         </a-menu>
@@ -33,12 +33,15 @@
 </template>
 
 <script setup>
+import accessCheck from '@/accessControl/accessCheck'
 import { routes } from '@/router/routes'
 import { useUserStore } from '@/stores'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const userStore = useUserStore()
+const loginUser = userStore.loginUser
 
 //默认主页
 const selectedKeys = ref(['/'])
@@ -54,11 +57,30 @@ const handleClick = (key) => {
   })
 }
 
-// 登录名称设置
-const userStore = useUserStore()
-setTimeout(() => {
-  userStore.updateUser()
-}, 3000)
+//导航菜单的显示与隐藏
+const visibleRoutes = computed(() => {
+  return routes.filter((item) => {
+    if (item.meta?.hideInMenu) {
+      return false
+    }
+    // 根据权限过滤菜单
+    if (!accessCheck(loginUser, item.meta?.access)) {
+      return false
+    }
+    return true
+  })
+})
+
+//登录名称设置
+// 模拟登录操作
+function login() {
+  // 登录逻辑...
+  const userStore = useUserStore()
+  userStore.getLoginUser()
+}
+
+// 调用登录函数
+login()
 </script>
 
 <style scoped>
