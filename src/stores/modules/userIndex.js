@@ -14,7 +14,7 @@ export const useUserStore = defineStore('user', () => {
   const getLoginUser = async () => {
     const res = await UserControllerService.getLoginUserUsingGet()
     if (res.code === 0) {
-      loginUser.value = res.data
+      loginUser.value.userName = res.data.userName
     } else {
       loginUser.value = {
         ...loginUser.value,

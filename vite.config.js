@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -14,5 +13,21 @@ export default defineConfig({
   },
   define: {
     'process.env': {},
+  },
+  optimizeDeps: {
+    exclude: ['monaco-editor'],
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        // 分包
+        sourcemap: true,
+        manualChunks(id) {
+          if (id.includes('monaco-editor')) {
+            return 'monaco-editor'
+          }
+        },
+      },
+    },
   },
 })

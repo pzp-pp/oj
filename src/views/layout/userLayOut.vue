@@ -3,7 +3,7 @@
     <a-layout style="min-height: 100vh">
       <a-layout-header class="header">
         <a-space>
-          <img class="logo" src="/src/assets/布布头像.jpeg" />
+          <img class="logo" src="/src/assets/一二头像.jpeg" />
           <div><span>布布-oj</span></div>
         </a-space>
       </a-layout-header>

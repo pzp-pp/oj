@@ -5,6 +5,7 @@ import '@arco-design/web-vue/dist/arco.css'
 import App from './App.vue'
 import router from './router'
 import routerGuard from '@/accessControl/index'
+import 'bytemd/dist/index.css'
 
 routerGuard.setup()
 const app = createApp(App)

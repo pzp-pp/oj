@@ -19,9 +19,6 @@ import globalHeader from '@/components/globalHeader.vue'
 </script>
 
 <style scoped>
-#basicLayOut {
-}
-
 #basicLayOut .header {
   margin-bottom: 16px;
   box-shadow: gray 1px 1px 5px;
@@ -34,7 +31,6 @@ import globalHeader from '@/components/globalHeader.vue'
 }
 
 #basicLayOut .footer {
-  background: red;
   padding: 16px;
   position: sticky;
   bottom: 0;

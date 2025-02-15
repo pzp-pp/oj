@@ -70,17 +70,6 @@ const visibleRoutes = computed(() => {
     return true
   })
 })
-
-//登录名称设置
-// 模拟登录操作
-function login() {
-  // 登录逻辑...
-  const userStore = useUserStore()
-  userStore.getLoginUser()
-}
-
-// 调用登录函数
-login()
 </script>
 
 <style scoped>

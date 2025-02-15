@@ -21,7 +21,7 @@ export const routes = [
   {
     path: '/',
     name: '浏览题目',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/exampleView.vue'),
   },
   {
     path: '/admin',

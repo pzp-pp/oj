@@ -11,9 +11,14 @@
     "format": "prettier --write src"
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/plugin-highlight": "^1.21.0",
+    "@bytemd/vue-next": "^1.21.0",
     "@openapitools/openapi-generator-cli": "^2.16.3",
     "axios": "^1.7.9",
+    "monaco-editor": "^0.52.2",
     "pinia": "^2.3.1",
+    "vite-plugin-monaco-editor": "^1.1.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

@@ -9,7 +9,7 @@
       @submit="handleSubmit"
     >
       <a-form-item field="userAccount" tooltip="请输入用户名" label="用户名">
-        <a-input v-model="userAccount" placeholder="请输入用户名" />
+        <a-input v-model="form.userAccount" placeholder="请输入用户名" />
       </a-form-item>
       <a-form-item
         field="userPassword"
